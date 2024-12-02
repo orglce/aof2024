@@ -20,7 +20,6 @@ func Day1() {
 	start = utils.CurrentTime()
 	fmt.Println("Part2: ", Part2(fileContent))
 	utils.ExcutionTime(start)
-
 }
 
 func Part1(fileContent string) int {
@@ -57,13 +56,7 @@ func Part2(fileContent string) int {
 		firstNum, _ := strconv.Atoi(parts[0])
 		secondNum, _ := strconv.Atoi(parts[1])
 		firstNum = int(firstNum)
-		secondNum = int(secondNum)
-		val, ok := nums[secondNum]
-		if ok {
-			nums[secondNum] = val + 1
-		} else {
-			nums[secondNum] = 1
-		}
+		nums[secondNum] += 1
 		list1[i] = firstNum
 	}
 

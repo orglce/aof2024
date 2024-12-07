@@ -4,10 +4,6 @@ go 1.23.3
 
 replace day0 => ../day0
 
-require day3 v0.0.0-00010101000000-000000000000
-
-require utils v0.0.0-00010101000000-000000000000 // indirect
-
 replace utils => ../utils
 
 replace day1 => ../day1
@@ -15,3 +11,11 @@ replace day1 => ../day1
 replace day2 => ../day2
 
 replace day3 => ../day3
+
+replace day4 => ../day4
+
+require day7 v0.0.0-00010101000000-000000000000
+
+require utils v0.0.0-00010101000000-000000000000 // indirect
+
+replace day7 => ../day7

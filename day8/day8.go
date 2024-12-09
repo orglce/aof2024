@@ -9,9 +9,8 @@ import (
 func Day8() {
 	utils.LogDay(8)
 
-	fileContent := utils.FileToString("../day8/input.txt")
-
 	start := utils.CurrentTime()
+	fileContent := utils.FileToString("../day8/input.txt")
 	fmt.Println("Part1: ", Part1(fileContent))
 	utils.ExcutionTime(start)
 

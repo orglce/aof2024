@@ -1,22 +1,16 @@
 package day8
 
 import (
-	"fmt"
 	"strings"
 	"utils"
 )
 
 func Day8() {
-	utils.LogDay(8)
+	measureTime := true
+	fileContent := utils.FileToString(utils.GetCurrentDay())
 
-	start := utils.CurrentTime()
-	fileContent := utils.FileToString("../day8/input.txt")
-	fmt.Println("Part1: ", Part1(fileContent))
-	utils.ExcutionTime(start)
-
-	start = utils.CurrentTime()
-	fmt.Println("Part2: ", Part2(fileContent))
-	utils.ExcutionTime(start)
+	utils.RunFunc(Part1, fileContent, measureTime)
+	utils.RunFunc(Part2, fileContent, measureTime)
 }
 
 type vector struct {

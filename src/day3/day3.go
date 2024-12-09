@@ -1,24 +1,17 @@
 package day3
 
 import (
-	"fmt"
 	"regexp"
 	"strconv"
 	"utils"
 )
 
 func Day3() {
-	utils.LogDay(3)
+	measureTime := true
+	fileContent := utils.FileToString(utils.GetCurrentDay())
 
-	fileContent := utils.FileToString("../day3/input.txt")
-
-	start := utils.CurrentTime()
-	fmt.Println("Part1: ", Part1(fileContent))
-	utils.ExcutionTime(start)
-
-	start = utils.CurrentTime()
-	fmt.Println("Part2: ", Part2(fileContent))
-	utils.ExcutionTime(start)
+	utils.RunFunc(Part1, fileContent, measureTime)
+	utils.RunFunc(Part2, fileContent, measureTime)
 }
 
 func Part1(fileContent string) int {

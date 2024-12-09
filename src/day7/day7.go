@@ -1,20 +1,17 @@
 package day7
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 	"utils"
 )
 
 func Day7() {
-	utils.LogDay(7)
+	measureTime := true
+	fileContent := utils.FileToString(utils.GetCurrentDay())
 
-	fileContent := utils.FileToString("../day7/input.txt")
-
-	start := utils.CurrentTime()
-	fmt.Println("Part2: ", Part2(fileContent))
-	utils.ExcutionTime(start)
+	utils.RunFunc(Part1, fileContent, measureTime)
+	utils.RunFunc(Part2, fileContent, measureTime)
 }
 
 func concatenate(x, y int) int {
@@ -23,6 +20,10 @@ func concatenate(x, y int) int {
 		pow *= 10
 	}
 	return x*pow + y
+}
+
+func Part1(fileContent string) int {
+	return 0
 }
 
 func Part2(fileContent string) int {

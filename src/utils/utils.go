@@ -9,6 +9,7 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/fatih/color"
@@ -39,6 +40,33 @@ func Abs(a int) int {
 		return a
 	}
 	return -a
+}
+
+func GetIntGrid(fileContent string) [][]int {
+	lines := strings.Split(fileContent, "\n")
+
+	grid := make([][]int, len(lines))
+	for i, line := range lines {
+		grid[i] = make([]int, len(line))
+		for j, char := range line {
+			if char == '.' {
+				grid[i][j] = 2
+				continue
+			}
+			num, _ := strconv.Atoi(string(char))
+			grid[i][j] = num
+		}
+	}
+	return grid
+}
+
+func PrintGrid(grid [][]int) {
+	for _, line := range grid {
+		for _, num := range line {
+			fmt.Printf("%d ", num)
+		}
+		fmt.Println()
+	}
 }
 
 func GetFunctionName(i interface{}) string {
@@ -162,4 +190,12 @@ func RunFunc(funcToRun func(string) int, fileContent string, measureTime bool) i
 	f.WriteString(fmt.Sprintf("| %-17s | %-17d | %-*s |\n", functionName, result, timePaddingNormal, timeStringHtml))
 
 	return result
+}
+
+func RunWithGoroutines(wg *sync.WaitGroup, function func()) {
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		function()
+	}()
 }

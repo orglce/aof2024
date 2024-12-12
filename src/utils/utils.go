@@ -81,7 +81,7 @@ func GetCurrentDay() int {
 }
 
 func ProcessArgs(functions map[int]func(), args []string) []int {
-	f, _ := os.Create("../results.md")
+	f, _ := os.Create("../../README.md")
 	defer f.Close()
 
 	f.WriteString(fmt.Sprintf("| %-17s | %-17s | %-17s |\n", "Function", "Result", "Execution time"))
@@ -111,7 +111,7 @@ func ProcessArgs(functions map[int]func(), args []string) []int {
 }
 
 func RunFunc(funcToRun func(string) int, fileContent string, measureTime bool) int {
-	f, err := os.OpenFile("../results.md", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	f, err := os.OpenFile("../../README.md", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
 	if err != nil {
 		log.Fatal(err)
 	}

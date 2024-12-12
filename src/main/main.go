@@ -3,6 +3,7 @@ package main
 import (
 	"day1"
 	"day10"
+	"day11"
 	"day2"
 	"day3"
 	"day4"
@@ -27,12 +28,11 @@ func main() {
 	functions[8] = day8.Day8
 	functions[9] = day9.Day9
 	functions[10] = day10.Day10
+	functions[11] = day11.Day11
 
 	daysToRun := utils.ProcessArgs(functions, os.Args)
 
-	start := utils.CurrentTime()
 	for _, day := range daysToRun {
 		functions[day]()
 	}
-	utils.ExcutionTime(start)
 }

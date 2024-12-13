@@ -42,6 +42,32 @@ func Abs(a int) int {
 	return -a
 }
 
+func GetStringGrid(fileContent string) [][]string {
+	lines := strings.Split(fileContent, "\n")
+
+	grid := make([][]string, len(lines))
+	for i, line := range lines {
+		grid[i] = make([]string, len(line))
+		for j, char := range line {
+			grid[i][j] = string(char)
+		}
+	}
+	return grid
+}
+
+func GetRuneGrid(fileContent string) [][]rune {
+	lines := strings.Split(fileContent, "\n")
+
+	grid := make([][]rune, len(lines))
+	for i, line := range lines {
+		grid[i] = make([]rune, len(line))
+		for j, char := range line {
+			grid[i][j] = char
+		}
+	}
+	return grid
+}
+
 func GetIntGrid(fileContent string) [][]int {
 	lines := strings.Split(fileContent, "\n")
 
@@ -58,6 +84,15 @@ func GetIntGrid(fileContent string) [][]int {
 		}
 	}
 	return grid
+}
+
+func PrintStringGrid(grid [][]string) {
+	for _, line := range grid {
+		for _, num := range line {
+			fmt.Printf("%s ", num)
+		}
+		fmt.Println()
+	}
 }
 
 func PrintGrid(grid [][]int) {

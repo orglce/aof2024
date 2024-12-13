@@ -4,6 +4,7 @@ import (
 	"day1"
 	"day10"
 	"day11"
+	"day12"
 	"day2"
 	"day3"
 	"day4"
@@ -29,6 +30,7 @@ func main() {
 	functions[9] = day9.Day9
 	functions[10] = day10.Day10
 	functions[11] = day11.Day11
+	functions[12] = day12.Day12
 
 	daysToRun := utils.ProcessArgs(functions, os.Args)
 

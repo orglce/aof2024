@@ -24,6 +24,7 @@ require (
 	day10 v0.0.0-00010101000000-000000000000
 	day11 v0.0.0-00010101000000-000000000000
 	day12 v0.0.0-00010101000000-000000000000
+	day13 v0.0.0-00010101000000-000000000000
 	day4 v0.0.0-00010101000000-000000000000
 	day5 v0.0.0-00010101000000-000000000000
 	day6 v0.0.0-00010101000000-000000000000
@@ -38,6 +39,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	golang.org/x/sys v0.25.0 // indirect
+	gonum.org/v1/gonum v0.15.1 // indirect
 )
 
 replace day7 => ../day7
@@ -55,3 +57,5 @@ replace day10 => ../day10
 replace day11 => ../day11
 
 replace day12 => ../day12
+
+replace day13 => ../day13

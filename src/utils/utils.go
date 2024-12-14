@@ -19,6 +19,13 @@ func CurrentTime() time.Time {
 	return time.Now()
 }
 
+func Must[T any](v T, err error) T {
+	if err != nil {
+		panic(err)
+	}
+	return v
+}
+
 func ExcutionTime(start time.Time) {
 	fmt.Printf("Execution time: %s\n", time.Since(start))
 }
@@ -98,7 +105,11 @@ func PrintStringGrid(grid [][]string) {
 func PrintGrid(grid [][]int) {
 	for _, line := range grid {
 		for _, num := range line {
-			fmt.Printf("%d ", num)
+			if num == 0 {
+				fmt.Printf("%s", ".")
+			} else {
+				fmt.Printf("%d", num)
+			}
 		}
 		fmt.Println()
 	}
@@ -178,12 +189,12 @@ func RunFunc(funcToRun func(string) int, fileContent string, measureTime bool) i
 
 	functionName := GetFunctionName(funcToRun)
 
-	if end > 1000 {
+	if end > 1000000 {
+		n = 1
+	} else if end > 1000 {
 		if n >= 500 {
 			n = n / 100
 		}
-	} else if end > 1000000 {
-		return result
 	}
 
 	var sum float64 = 0

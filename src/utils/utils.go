@@ -75,6 +75,19 @@ func GetRuneGrid(fileContent string) [][]rune {
 	return grid
 }
 
+func GetRuneGridFromLines(lines []string) [][]rune {
+	// lines := strings.Split(fileContent, "\n")
+
+	grid := make([][]rune, len(lines))
+	for i, line := range lines {
+		grid[i] = make([]rune, len(line))
+		for j, char := range line {
+			grid[i][j] = char
+		}
+	}
+	return grid
+}
+
 func GetIntGrid(fileContent string) [][]int {
 	lines := strings.Split(fileContent, "\n")
 
@@ -97,6 +110,15 @@ func PrintStringGrid(grid [][]string) {
 	for _, line := range grid {
 		for _, num := range line {
 			fmt.Printf("%s ", num)
+		}
+		fmt.Println()
+	}
+}
+
+func PrintRuneGrid(grid [][]rune) {
+	for _, line := range grid {
+		for _, num := range line {
+			fmt.Printf("%c", num)
 		}
 		fmt.Println()
 	}
